@@ -25,4 +25,10 @@ def invalid_tweets(tweets: pd.DataFrame) -> pd.DataFrame:
     # then only return the id col
     return filtered[['tweet_id']]
 
+    # alternatively, we can do this in one line:
+    # return tweets.query('content.str.len() > 15')[['tweet_id']]
+
+    # or create a boolean series and use that to filter
+    # bool_series = tweets['content'].str.len() > 15
+    # return tweets[bool_series][['tweet_id']]
 
